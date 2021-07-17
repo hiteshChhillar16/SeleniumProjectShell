@@ -12,9 +12,6 @@ namespace SeleniumProjectShell
     class Setting
     {
         public string Environment { get; set; } = ConfigurationManager.AppSettings["Environment"];
-        public string Facility { get; set; } = ConfigurationManager.AppSettings["Facility"];
-        public string ResidentFirstName { get; set; } = ConfigurationManager.AppSettings["ResidentFirstName"];
-        public string ResidentLastName { get; set; } = ConfigurationManager.AppSettings["ResidentLastName"];
         public IWebDriver WebDriver { get; set; }
         public string Username { get; set; } = ConfigurationManager.AppSettings["Username"];
         public string Password { get; set; } = ConfigurationManager.AppSettings["Password"];
@@ -46,18 +43,6 @@ namespace SeleniumProjectShell
                 {
                     this.Password = argValue;
                 }
-                else if (argType.Equals(ArgTypes.FirstName.Value))
-                {
-                    this.ResidentFirstName = argValue;
-                }
-                else if (argType.Equals(ArgTypes.LastName.Value))
-                {
-                    this.ResidentLastName = argValue;
-                }
-                else if (argType.Equals(ArgTypes.Facility.Value))
-                {
-                    this.Facility = argValue.Replace("_", " ");
-                }
                 else if (argType.Equals(ArgTypes.Environment.Value))
                 {
                     //this.Environment = argValue;
@@ -77,20 +62,15 @@ namespace SeleniumProjectShell
             WebDriver = new ChromeDriver(chromeOptions);
             this.Action = applicationData.Action;
             this.Environment = applicationData.Environment;
-            this.Facility = applicationData.Facility.Replace("_", " ");
             this.Password = applicationData.Password;
             this.Username = applicationData.Username;
-            this.ResidentFirstName = applicationData.ResidentFirstName;
-            this.ResidentLastName = applicationData.ResidentLastName;
         }
     }
 
-    public class SNFPages
+    public class ApplicationPages
     {
-        private SNFPages(string value) { Value = value; }
+        private ApplicationPages(string value) { Value = value; }
         public string Value { get; set; }
-        public static SNFPages ViewPrescriptionDrugOrder { get { return new SNFPages("ViewPrescriptionDrugOrder"); } }
-        public static SNFPages CreateCustomDrugOrder { get { return new SNFPages("CreateCustomDrugOrder"); } }
-        public static SNFPages ViewCancelRxResponseReport { get { return new SNFPages("ViewCancelRxResponseReport"); } }
+        public static ApplicationPages SamplePage { get { return new ApplicationPages("SamplePageForTheApplication"); } }
     }
 }
