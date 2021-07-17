@@ -34,10 +34,7 @@ namespace SeleniumProjectShell
                                             {
                                                 Action = dataRow.Field<string>("Action"),
                                                 Environment = dataRow.Field<string>("Environment"),
-                                                Facility = dataRow.Field<string>("Facility"),
-                                                Password = dataRow.Field<string>("Password"),
-                                                ResidentFirstName = dataRow.Field<string>("ResidentFirstName"),
-                                                ResidentLastName = dataRow.Field<string>("ResidentLastName"),
+                                                Password = dataRow.Field<string>("Password")
                                                 Username = dataRow.Field<string>("Username")
                                             }).ToList();
 
