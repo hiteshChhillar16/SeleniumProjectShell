@@ -17,11 +17,6 @@ namespace SeleniumProjectShell
             {
                 Setting appSetting = new Setting(appData);
                 ApplicationSeleniumSetup.Login(appSetting);
-                ApplicationSeleniumSetup.SetFacility(appSetting);
-                if (appData.Action.Contains(SNFPages.ViewCancelRxResponseReport.Value))
-                {
-                    FacilityReports.ViewCancelRxResponseReport(appSetting, appData);
-                }
             }
 
         }
